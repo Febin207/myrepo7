@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<form method = "post" enctype="mutipart/form-data">
+  {% csrf_token %}
+  {{form.as_p}}
+    <p>D you want to delete {{product.name}}</p>
+    <a href="{% url 'home' %}" class="btn btn-warning">Cancel</a>
+   <input type="submit" value="Delete product" class="btm btn-danger"/>
+</form>
+{% endblock %

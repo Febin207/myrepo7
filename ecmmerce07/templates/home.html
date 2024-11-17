@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div>
+    <img src="{% static 'images/girl.jpg' %}" alt="wallpaper" style="heiht:100px; width:1000px;"
+</div>
+<div>
+    <h1>Our Products Collection</h1>
+</div>
+<div class="row">
+    <div class="col-10"></div>
+    <div class="col-2"><a href="{% url 'add_product' %}" class="btn btn-primary">Add New Product</a> </div>
+
+            {% for Product in products %}
+    <div class="card" style="width: 18rem;">
+  <img src="{{Product.image.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"> {{ Product.name }}</h5>
+    <p class="card-text">Rs.  {{ Product.price }}</p>
+    <a href="{% if product.id %}{% url 'edit_product' product.id %}{% else %}#{% endif %}" class="btn btn-primary">Edit Product</a>
+      <a href="{%if product.id %}{% url 'delete_product' product.id %}{% else %}#{% endif %}" class="btn btn-primary">Delete Product</a>
+  </div>
+</div>
+
+.
+            {% endfor %}
+</div>
+{% endblock %}

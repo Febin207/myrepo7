@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1> Register your account</h1>
+<form method = "post" action = "/signup/">
+  {% csrf_token %}
+  <label for="">Userrname</label>
+    <input type="text" id="username" placeholder="Enter Username" name="username" required>
+  <br>
+  <label for="">first name</label>
+    <input type="text" id="fname" placeholder="First Name" name="fname" required>
+  <br>
+  <label for="">last name</label>
+    <input type="text" id="lname" placeholder="Second Name" name="lname" required>
+  <br>
+  <label for="">Email</label>
+    <input type="text" id="email" placeholder="Email" name="email" required>
+  <br>
+  <label for="">Password</label>
+    <input type="password" id="password1" placeholder="Enter Password" name="password1" required>
+  <br>
+  <label for="">conform Password</label>
+    <input type="password" id="password2" placeholder="Repeat Password" name="password2" required>
+
+
+      <button type="submit">Sign Up</button>
+</form>
+{% endblock %}

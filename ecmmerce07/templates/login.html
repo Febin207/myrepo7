@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1>Login your account</h1>
+{% if messages %}
+        <ul class="messages">
+          {% for message in messages %}
+              <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+        </ul>
+{% endif %}
+<form action="/signin/" method="post">
+  {% csrf_token %}
+    <label for="">Username</label>
+    <input type="text" id="username" placeholder="Enter Username" name="username" required>
+
+    <label for="">Password</label>
+    <input type="password" id="password" placeholder="Enter Password" name="password1" required>
+
+    <button type="submit">Login</button>
+</form>
+{% endblock %}
